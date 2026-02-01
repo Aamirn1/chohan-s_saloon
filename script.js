@@ -483,8 +483,18 @@ function initFormInteractions() {
     });
   });
 
-  // Handle label clicks specifically if needed (though label wrapping input usually handles this)
-  // We'll rely on the change event which is safer.
+  // Explicit click handler for labels to ensure visual update immediately
+  serviceOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      // If the click wasn't on the input itself (propagation), ensure input is checked
+      const input = option.querySelector('input[type="radio"]');
+      if (e.target !== input) {
+        input.checked = true;
+        // Trigger change event manually if needed, or just update UI
+        input.dispatchEvent(new Event('change'));
+      }
+    });
+  });
 
   // Add-ons Selection
   const addonInputs = document.querySelectorAll('input[name="addon"]');
