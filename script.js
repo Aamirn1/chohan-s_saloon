@@ -381,17 +381,21 @@ function initNewsletter() {
 // ================================================
 // BOOKING FORM
 // ================================================
+// ================================================
+// BOOKING FORM
+// ================================================
 function initBookingForm() {
   const dateInput = document.getElementById('appointmentDate');
-  const timeSlotsContainer = document.getElementById('timeSlots');
   const form = document.getElementById('appointmentForm');
 
   // Set minimum date to today
   const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
   dateInput.min = formatDate(today);
-  dateInput.max = formatDate(new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000)); // 30 days ahead
+
+  // Set default value to today if empty
+  if (!dateInput.value) {
+    dateInput.value = formatDate(today);
+  }
 
   // Generate time slots when date changes
   dateInput.addEventListener('change', () => {
@@ -484,7 +488,7 @@ function updatePriceSummary() {
   selectedAddonsInputs.forEach(input => {
     const parentLabel = input.closest('.addon-option');
     const price = parseInt(parentLabel.dataset.price);
-    const name = parentLabel.querySelector('.service-option-name').textContent; // Note: Ensure HTML structure matches this selector or use simpler parsing
+    const name = parentLabel.querySelector('.service-option-name').textContent;
 
     total += price;
     html += `
@@ -499,6 +503,44 @@ function updatePriceSummary() {
   totalPriceElement.textContent = `Rs. ${total}`;
 }
 
+function generateTimeSlots(selectedDate) {
+  const container = document.getElementById('timeSlots');
+  if (!container) return;
+
+  container.innerHTML = '<option value="" disabled selected>Select a time</option>';
+
+  if (!selectedDate) return;
+
+  const { open, close } = CONFIG.businessHours;
+  const now = new Date();
+  const isToday = selectedDate === formatDate(now);
+
+  for (let hour = open; hour < close; hour++) {
+    for (let min = 0; min < 60; min += CONFIG.slotDuration) {
+      const timeString = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
+      const displayTime = formatTimeDisplay(hour, min);
+
+      // Check availability
+      let isDisabled = false;
+      if (isToday) {
+        const slotTime = new Date();
+        slotTime.setHours(hour, min, 0, 0);
+        if (slotTime <= now) isDisabled = true;
+      }
+
+      const slotKey = `${selectedDate}-${timeString}`;
+      if (bookedSlots[slotKey] >= CONFIG.maxConcurrentBookings) isDisabled = true;
+
+      if (!isDisabled) {
+        const option = document.createElement('option');
+        option.value = timeString;
+        option.textContent = displayTime;
+        container.appendChild(option);
+      }
+    }
+  }
+}
+
 async function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -508,11 +550,16 @@ async function handleFormSubmit(e) {
 
   // Validation
   const selectedService = document.querySelector('input[name="service"]:checked');
-  const selectedTime = document.querySelector('.time-slot.selected');
+  const timeSelect = document.getElementById('timeSlots');
   const confirmCheckbox = document.getElementById('confirmBooking');
 
-  if (!selectedService || !selectedTime) {
-    alert('Please select a service and time slot.');
+  if (!selectedService) {
+    alert('Please select a service.');
+    return;
+  }
+
+  if (!timeSelect.value) {
+    alert('Please select a time slot.');
     return;
   }
 
@@ -520,88 +567,104 @@ async function handleFormSubmit(e) {
     alert('Please confirm your appointment.');
     return;
   }
-  // Format date for display
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Processing...';
+
+  // Gather Data
+  const serviceName = selectedService.closest('.service-option').querySelector('.service-option-name').textContent;
+  const totalPrice = document.getElementById('totalPrice').textContent;
+
+  // Collect addons
+  const addons = [];
+  document.querySelectorAll('input[name="addon"]:checked').forEach(input => {
+    const label = input.closest('.addon-option');
+    addons.push({
+      name: label.querySelector('.service-option-name').textContent,
+      price: label.dataset.price
+    });
   });
 
-  const formattedTime = formatTimeFromString(time);
+  const formData = {
+    customer_name: document.getElementById('customerName').value,
+    customer_phone: document.getElementById('customerPhone').value,
+    appointment_date: document.getElementById('appointmentDate').value,
+    appointment_time: timeSelect.value,
+    service_name: serviceName,
+    total_price: totalPrice,
+    addons: addons
+  };
+
+  // Simulate booking slot
+  const date = formData.appointment_date;
+  const time = formData.appointment_time;
+  const slotKey = `${date}-${time}`;
+  bookedSlots[slotKey] = (bookedSlots[slotKey] || 0) + 1;
 
   // Show confirmation modal
   const confirmationDetails = document.getElementById('confirmationDetails');
+  const formattedDate = new Date(date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const formattedTime = formatTimeFromString(time);
+
   confirmationDetails.innerHTML = `
-    <div class="detail-row">
-      <span class="detail-label">Name</span>
-      <span class="detail-value">${name}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Phone</span>
-      <span class="detail-value">${phone}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Date</span>
-      <span class="detail-value">${formattedDate}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Time</span>
-      <span class="detail-value">${formattedTime}</span>
-    </div>
-    <div class="detail-row">
-      <span class="detail-label">Service</span>
-      <span class="detail-value">${serviceName}</span>
-    </div>
-    ${addons.length > 0 ? `
-    <div class="detail-row">
-      <span class="detail-label">Add-ons</span>
-      <span class="detail-value">${addons.map(a => a.name).join(', ')}</span>
-    </div>
-    ` : ''}
+    <div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">${formData.customer_name}</span></div>
+    <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">${formData.customer_phone}</span></div>
+    <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">${formattedDate}</span></div>
+    <div class="detail-row"><span class="detail-label">Time</span><span class="detail-value">${formattedTime}</span></div>
+    <div class="detail-row"><span class="detail-label">Service</span><span class="detail-value">${serviceName}</span></div>
+    ${addons.length > 0 ? `<div class="detail-row"><span class="detail-label">Add-ons</span><span class="detail-value">${addons.map(a => a.name).join(', ')}</span></div>` : ''}
     <div class="detail-row" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
       <span class="detail-label" style="font-weight: 700;">Total</span>
-      <span class="detail-value" style="color: #d4af37; font-weight: 700;">Rs. ${totalPrice}</span>
+      <span class="detail-value" style="color: #d4af37; font-weight: 700;">${totalPrice}</span>
     </div>
   `;
 
   document.getElementById('bookingConfirmation').classList.add('active');
 
-  // Simulate booking slot
-  const slotKey = `${date}-${time}`;
-  bookedSlots[slotKey] = (bookedSlots[slotKey] || 0) + 1;
+  // Send Email
+  if (window.emailjs && CONFIG.emailjs.publicKey !== 'YOUR_PUBLIC_KEY') {
+    try {
+      await emailjs.send(
+        CONFIG.emailjs.serviceId,
+        CONFIG.emailjs.templateId,
+        {
+          to_name: 'Chohan Saloon Admin',
+          from_name: formData.customer_name,
+          customer_name: formData.customer_name,
+          customer_phone: formData.customer_phone,
+          appointment_date: formattedDate,
+          appointment_time: formattedTime,
+          service_name: serviceName,
+          addons: addons.map(a => a.name).join(', '),
+          total_price: totalPrice,
+          reply_to: formData.customer_phone
+        }
+      );
+      console.log('Email sent');
+    } catch (err) {
+      console.error('Email failed', err);
+    }
+  }
 
-  // In a real application, this would send an email to the admin
-  // For now, we'll log the booking details
-  console.log('Booking submitted:', {
-    name,
-    phone,
-    date,
-    time,
-    service: serviceName,
-    addons,
-    total: totalPrice,
-    adminEmail: CONFIG.adminEmail
-  });
+  // Reset logic
+  form.reset();
+  resetSelection();
+  submitBtn.disabled = false;
+  submitBtn.textContent = originalBtnText; // Restore button text!
 
-  // Simulate sending email notification (in real app, this would be a server call)
-  sendBookingNotification({
-    name,
-    phone,
-    date: formattedDate,
-    time: formattedTime,
-    service: serviceName,
-    addons: addons.map(a => a.name).join(', ') || 'None',
-    total: totalPrice
-  });
-
-  // Reset form
-  e.target.reset();
-  document.querySelectorAll('.service-option, .addon-option, .time-slot').forEach(el => {
-    el.classList.remove('selected');
-  });
-  updatePriceSummary();
+  // Re-generate slots for cleared date/today
+  const today = new Date();
+  document.getElementById('appointmentDate').value = formatDate(today);
+  generateTimeSlots(formatDate(today));
 }
+
+function resetSelection() {
+  document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+  document.getElementById('priceItems').innerHTML = '<div class="price-item"><span>Select a service</span><span>-</span></div>';
+  document.getElementById('totalPrice').textContent = 'Rs. 0';
+}
+
+
 
 function formatTimeFromString(timeString) {
   const [hours, minutes] = timeString.split(':').map(Number);
