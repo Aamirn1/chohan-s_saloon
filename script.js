@@ -409,58 +409,10 @@ function formatDate(date) {
   return date.toISOString().split('T')[0];
 }
 
-function generateTimeSlots(selectedDate) {
-  const container = document.getElementById('timeSlots');
-  container.innerHTML = '';
-
-  const { open, close } = CONFIG.businessHours;
-  const now = new Date();
-  const isToday = selectedDate === formatDate(now);
-
-  for (let hour = open; hour < close; hour++) {
-    for (let min = 0; min < 60; min += CONFIG.slotDuration) {
-      const timeString = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`;
-      const displayTime = formatTimeDisplay(hour, min);
-
-      // Check if slot is in the past (for today)
-      let isDisabled = false;
-      if (isToday) {
-        const slotTime = new Date();
-        slotTime.setHours(hour, min, 0, 0);
-        if (slotTime <= now) {
-          isDisabled = true;
-        }
-      }
-
-      // Check if slot is fully booked
-      const slotKey = `${selectedDate}-${timeString}`;
-      if (bookedSlots[slotKey] >= CONFIG.maxConcurrentBookings) {
-        isDisabled = true;
-      }
-
-      const slot = document.createElement('div');
-      slot.className = `time-slot${isDisabled ? ' disabled' : ''}`;
-      slot.textContent = displayTime;
-      slot.dataset.time = timeString;
-
-      if (!isDisabled) {
-        slot.addEventListener('click', () => selectTimeSlot(slot));
-      }
-
-      container.appendChild(slot);
-    }
-  }
-}
-
 function formatTimeDisplay(hour, min) {
   const period = hour >= 12 ? 'PM' : 'AM';
   const displayHour = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
   return `${displayHour}:${min.toString().padStart(2, '0')} ${period}`;
-}
-
-function selectTimeSlot(slot) {
-  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-  slot.classList.add('selected');
 }
 
 // ================================================
@@ -480,19 +432,6 @@ function initFormInteractions() {
       if (parentLabel) parentLabel.classList.add('selected');
 
       updatePriceSummary();
-    });
-  });
-
-  // Explicit click handler for labels to ensure visual update immediately
-  serviceOptions.forEach(option => {
-    option.addEventListener('click', (e) => {
-      // If the click wasn't on the input itself (propagation), ensure input is checked
-      const input = option.querySelector('input[type="radio"]');
-      if (e.target !== input) {
-        input.checked = true;
-        // Trigger change event manually if needed, or just update UI
-        input.dispatchEvent(new Event('change'));
-      }
     });
   });
 
