@@ -7,7 +7,7 @@
 // GLOBAL VARIABLES & CONFIGURATION
 // ================================================
 const CONFIG = {
-  businessHours: { open: 10, close: 23 }, // 10 AM - 11 PM
+  businessHours: { open: 10, close: 24 }, // 10 AM - 12 AM (Last slot 11 PM)
   whatsappNumber: '923205719979',
   emailjs: {
     publicKey: '_WxFlkWVfpYmdf7SU',
