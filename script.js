@@ -10,9 +10,9 @@ const CONFIG = {
   businessHours: { open: 10, close: 23 }, // 10 AM - 11 PM
   whatsappNumber: '923205719979',
   emailjs: {
-    publicKey: 'YOUR_PUBLIC_KEY', // User needs to replace this
+    publicKey: '_WxFlkWVfpYmdf7SU',
     serviceId: 'service_mixheij',
-    templateId: 'YOUR_TEMPLATE_ID' // User needs to replace this
+    templateId: 'template_7af0zcc'
   }
 };
 
