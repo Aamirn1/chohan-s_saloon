@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Book an Appointment - Chohan's Saloon. Easy online booking for boys' haircuts and grooming.">
+    <title>Book Appointment | Chohan's Saloon</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="15" cy="15" r="2" fill="currentColor" />
+                    <circle cx="25" cy="15" r="2" fill="currentColor" />
+                    <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Chohan's Saloon
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="booking.html" class="active">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:03205719979" class="btn btn-secondary btn-sm">📞 Call Now</a>
+                <a href="booking.html" class="btn btn-primary btn-sm">Book Appointment</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Book Your Visit</h1>
+            <p>Schedule your transformation in minutes</p>
+        </div>
+    </div>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking section" id="booking">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Schedule <span class="text-gradient">Online</span></h2>
+                <p>Choose your preferred date, time, and service</p>
+            </div>
+
+            <div class="booking-container">
+                <div class="booking-info slide-in-left">
+                    <h3>Why Book With Us?</h3>
+                    <p>Experience hassle-free appointments with our easy online booking system.</p>
+
+                    <div class="booking-features">
+                        <div class="booking-feature">
+                            <div class="booking-feature-icon">🕐</div>
+                            <div class="booking-feature-text">
+                                <h4>Open Daily</h4>
+                                <p>10:00 AM - 11:00 PM, 7 days a week</p>
+                            </div>
+                        </div>
+                        <div class="booking-feature">
+                            <div class="booking-feature-icon">⚡</div>
+                            <div class="booking-feature-text">
+                                <h4>Instant Confirmation</h4>
+                                <p>Get immediate booking confirmation</p>
+                            </div>
+                        </div>
+                        <div class="booking-feature">
+                            <div class="booking-feature-icon">💳</div>
+                            <div class="booking-feature-text">
+                                <h4>Pay at Salon</h4>
+                                <p>No advance payment required</p>
+                            </div>
+                        </div>
+                        <div class="booking-feature">
+                            <div class="booking-feature-icon">📱</div>
+                            <div class="booking-feature-text">
+                                <h4>WhatsApp Support</h4>
+                                <p>Quick assistance anytime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form slide-in-right" id="bookingForm">
+                    <div class="form-header">
+                        <h3>Schedule Your Visit</h3>
+                        <p>Fill in the details below to book your appointment</p>
+                    </div>
+
+                    <form id="appointmentForm">
+                        <!-- Customer Details -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Your Name <span>*</span></label>
+                                <input type="text" class="form-input" id="customerName"
+                                    placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number <span>*</span></label>
+                                <input type="tel" class="form-input" id="customerPhone" placeholder="03XX-XXXXXXX"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Date & Time -->
+                        <div class="form-group">
+                            <label class="form-label">Select Date <span>*</span></label>
+                            <input type="date" class="form-input" id="appointmentDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Time <span>*</span></label>
+                            <div class="time-slots" id="timeSlots">
+                                <!-- Time slots will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Service Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Select Service <span>*</span></label>
+                            <div class="services-select" id="serviceSelect">
+                                <!-- Services Options -->
+                                <label class="service-option" data-price="500" data-duration="45">
+                                    <input type="radio" name="service" value="Barber's Recommendation" required>
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Barber's Recommendation ⭐</div>
+                                        <div class="service-option-details">45 min • Expert's choice</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 500</span>
+                                </label>
+                                <!-- Other services -->
+                                <label class="service-option" data-price="600" data-duration="40">
+                                    <input type="radio" name="service" value="Wolf Cut">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Wolf Cut</div>
+                                        <div class="service-option-details">40 min • Trendy & textured</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 600</span>
+                                </label>
+                                <label class="service-option" data-price="650" data-duration="45">
+                                    <input type="radio" name="service" value="Korean Cut">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Korean Cut</div>
+                                        <div class="service-option-details">45 min • K-pop inspired</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 650</span>
+                                </label>
+                                <label class="service-option" data-price="450" data-duration="35">
+                                    <input type="radio" name="service" value="Fade Cut">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Fade Cut</div>
+                                        <div class="service-option-details">35 min • Low/Mid/High fade</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 450</span>
+                                </label>
+                                <label class="service-option" data-price="350" data-duration="25">
+                                    <input type="radio" name="service" value="Crew Cut">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Crew Cut</div>
+                                        <div class="service-option-details">25 min • Classic & clean</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 350</span>
+                                </label>
+                                <label class="service-option" data-price="250" data-duration="20">
+                                    <input type="radio" name="service" value="Beard Trim">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Beard Trim</div>
+                                        <div class="service-option-details">20 min • Shape & style</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 250</span>
+                                </label>
+                                <label class="service-option" data-price="350" data-duration="30">
+                                    <input type="radio" name="service" value="Hot Towel Shave">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Hot Towel Shave</div>
+                                        <div class="service-option-details">30 min • Traditional shave</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 350</span>
+                                </label>
+                                <label class="service-option" data-price="500" data-duration="40">
+                                    <input type="radio" name="service" value="Face Spa">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Face Spa</div>
+                                        <div class="service-option-details">40 min • Relaxing facial</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 500</span>
+                                </label>
+                                <label class="service-option" data-price="800" data-duration="60">
+                                    <input type="radio" name="service" value="Premium Facial">
+                                    <span class="service-option-check"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Premium Facial</div>
+                                        <div class="service-option-details">60 min • Deep cleansing</div>
+                                    </div>
+                                    <span class="service-option-price">Rs. 800</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Add-ons -->
+                        <div class="form-group">
+                            <label class="form-label">Add-ons (Optional)</label>
+                            <div class="addons-grid" id="addonsGrid">
+                                <label class="addon-option" data-price="200">
+                                    <input type="checkbox" name="addon" value="Hot Towel Treatment">
+                                    <span class="addon-checkbox"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Hot Towel</div>
+                                    </div>
+                                    <span class="service-option-price">+Rs. 200</span>
+                                </label>
+                                <label class="addon-option" data-price="300">
+                                    <input type="checkbox" name="addon" value="Hair Styling">
+                                    <span class="addon-checkbox"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Hair Styling</div>
+                                    </div>
+                                    <span class="service-option-price">+Rs. 300</span>
+                                </label>
+                                <label class="addon-option" data-price="150">
+                                    <input type="checkbox" name="addon" value="Scalp Massage">
+                                    <span class="addon-checkbox"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Scalp Massage</div>
+                                    </div>
+                                    <span class="service-option-price">+Rs. 150</span>
+                                </label>
+                                <label class="addon-option" data-price="500">
+                                    <input type="checkbox" name="addon" value="Face Spa">
+                                    <span class="addon-checkbox"></span>
+                                    <div class="service-option-info">
+                                        <div class="service-option-name">Face Spa</div>
+                                    </div>
+                                    <span class="service-option-price">+Rs. 500</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Summary -->
+                        <div class="price-summary" id="priceSummary">
+                            <h4>Booking Summary</h4>
+                            <div id="priceItems">
+                                <div class="price-item">
+                                    <span>Select a service to see pricing</span>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="price-total">
+                                <span>Total</span>
+                                <span class="amount" id="totalPrice">Rs. 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Confirmation -->
+                        <label class="confirm-checkbox">
+                            <input type="checkbox" id="confirmBooking" required>
+                            <span>I confirm this appointment and agree to arrive on time.</span>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            ✨ Confirm Appointment
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="booking-confirmation" id="bookingConfirmation">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">✓</div>
+            <h3>Booking Confirmed!</h3>
+            <p>Your appointment has been scheduled successfully.</p>
+
+            <div class="confirmation-details" id="confirmationDetails">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <a href="index.html" class="btn btn-primary" onclick="closeConfirmation()">Back to Home</a>
+            <button class="btn btn-secondary" onclick="closeConfirmation()" style="margin-top: 1rem;">Close</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <circle cx="15" cy="15" r="2" fill="currentColor" />
+                            <circle cx="25" cy="15" r="2" fill="currentColor" />
+                            <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        Chohan's Saloon
+                    </a>
+                    <p>Premium boys' haircut and grooming salon. Where style meets precision for the modern young
+                        gentleman.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><span>📘</span></a>
+                        <a href="#" class="social-link"><span>📸</span></a>
+                        <a href="#" class="social-link"><span>🎵</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="index.html#reviews">Reviews</a>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="services.html">Wolf Cut</a>
+                        <a href="services.html">Korean Cut</a>
+                        <a href="services.html">Fade Cut</a>
+                        <a href="services.html">Beard Trim</a>
+                        <a href="services.html">Face Spa</a>
+                    </div>
+                </div>
+
+                <div class="footer-hours">
+                    <h4 class="footer-title">Business Hours</h4>
+                    <p><span class="highlight">Open Daily</span></p>
+                    <p>10:00 AM - 11:00 PM</p>
+                    <p style="margin-top: 1rem;"><span class="highlight">Phone:</span></p>
+                    <p>0320-5719979</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Chohan's Saloon. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/923205719979" class="social-link" style="background: #25D366;">
+                        <span>💬</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/923205719979" class="whatsapp-btn" target="_blank" rel="noopener"
+            aria-label="Chat on WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

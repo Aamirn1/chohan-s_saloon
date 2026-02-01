@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Our Services - Chohan's Saloon. Expert haircuts, grooming, facials, and more for boys and teens.">
+    <title>Services | Chohan's Saloon</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="15" cy="15" r="2" fill="currentColor" />
+                    <circle cx="25" cy="15" r="2" fill="currentColor" />
+                    <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Chohan's Saloon
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:03205719979" class="btn btn-secondary btn-sm">📞 Call Now</a>
+                <a href="booking.html" class="btn btn-primary btn-sm">Book Appointment</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Services & Team</h1>
+            <p>Expert styling for the modern young gentleman</p>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Premium <span class="text-gradient">Grooming</span></h2>
+                <p>Choose from our range of haircuts, styling, and treatments</p>
+            </div>
+
+            <div class="services-categories fade-in">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="haircuts">Haircuts</button>
+                <button class="category-btn" data-category="grooming">Grooming</button>
+                <button class="category-btn" data-category="facials">Facials</button>
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- Barber's Recommendation -->
+                <div class="service-card featured fade-in" data-category="haircuts">
+                    <span class="featured-badge">⭐ Popular</span>
+                    <div class="service-icon">💈</div>
+                    <h3 class="service-name">Barber's Recommendation</h3>
+                    <p class="service-description">Let our expert barbers analyze your face shape and style to suggest
+                        the perfect cut that suits you best.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 500</span>
+                        <span class="service-duration">⏱ 45 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Wolf Cut -->
+                <div class="service-card fade-in" data-category="haircuts">
+                    <div class="service-icon">✂️</div>
+                    <h3 class="service-name">Wolf Cut</h3>
+                    <p class="service-description">Trendy, layered style with a shaggy texture. Perfect for teens who
+                        want an edgy, modern look.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 600</span>
+                        <span class="service-duration">⏱ 40 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Korean Cut -->
+                <div class="service-card fade-in" data-category="haircuts">
+                    <div class="service-icon">🎎</div>
+                    <h3 class="service-name">Korean Cut</h3>
+                    <p class="service-description">K-pop inspired style with soft layers, curtain bangs, and a sleek
+                        finish for a youthful appearance.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 650</span>
+                        <span class="service-duration">⏱ 45 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Crew Cut -->
+                <div class="service-card fade-in" data-category="haircuts">
+                    <div class="service-icon">👦</div>
+                    <h3 class="service-name">Crew Cut</h3>
+                    <p class="service-description">Classic, clean, and low-maintenance. A timeless style that works for
+                        all ages and occasions.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 350</span>
+                        <span class="service-duration">⏱ 25 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Fade Cut -->
+                <div class="service-card fade-in" data-category="haircuts">
+                    <div class="service-icon">📐</div>
+                    <h3 class="service-name">Fade Cut</h3>
+                    <p class="service-description">Precision fade from skin to full length. Choose from low, mid, or
+                        high fade styles.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 450</span>
+                        <span class="service-duration">⏱ 35 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Classic Cut -->
+                <div class="service-card fade-in" data-category="haircuts">
+                    <div class="service-icon">🎩</div>
+                    <h3 class="service-name">Classic Cut</h3>
+                    <p class="service-description">Traditional gentleman's haircut with scissor work, styled to
+                        perfection for a polished look.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 400</span>
+                        <span class="service-duration">⏱ 30 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Beard Trim -->
+                <div class="service-card fade-in" data-category="grooming">
+                    <div class="service-icon">🧔</div>
+                    <h3 class="service-name">Beard Trim & Shape</h3>
+                    <p class="service-description">Professional beard trimming and shaping to complement your face
+                        structure and style.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 250</span>
+                        <span class="service-duration">⏱ 20 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Hot Towel Shave -->
+                <div class="service-card fade-in" data-category="grooming">
+                    <div class="service-icon">🪒</div>
+                    <h3 class="service-name">Hot Towel Shave</h3>
+                    <p class="service-description">Luxurious traditional shave with hot towel treatment, premium oils,
+                        and a smooth finish.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 350</span>
+                        <span class="service-duration">⏱ 30 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Face Spa -->
+                <div class="service-card fade-in" data-category="facials">
+                    <div class="service-icon">💆</div>
+                    <h3 class="service-name">Face Spa</h3>
+                    <p class="service-description">Relaxing facial treatment with cleansing, exfoliation, and
+                        moisturizing for refreshed skin.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 500</span>
+                        <span class="service-duration">⏱ 40 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Facial Treatment -->
+                <div class="service-card fade-in" data-category="facials">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-name">Premium Facial</h3>
+                    <p class="service-description">Deep cleansing facial with anti-aging treatment, masks, and massage
+                        for glowing skin.</p>
+                    <div class="service-meta">
+                        <span class="service-price">Rs. 800</span>
+                        <span class="service-duration">⏱ 60 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team section" id="team">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Meet Our <span class="text-gradient">Expert Barbers</span></h2>
+                <p>Skilled professionals dedicated to making you look your best</p>
+            </div>
+
+            <div class="team-grid fade-in">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/barber_portrait_1_1769953277022.png" alt="Amir Chohan">
+                    </div>
+                    <div class="team-info">
+                        <h3>Amir Chohan</h3>
+                        <p class="team-role">Master Barber & Owner</p>
+                        <p class="team-bio">10+ years of experience in precision cuts and styling. Specializes in fades
+                            and classic gentleman cuts.</p>
+                        <div class="team-specialties">
+                            <span>Fades</span>
+                            <span>Classic Cuts</span>
+                            <span>Beard Styling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/barber_portrait_2_1769953291764.png" alt="Hassan Ali">
+                    </div>
+                    <div class="team-info">
+                        <h3>Hassan Ali</h3>
+                        <p class="team-role">Senior Stylist</p>
+                        <p class="team-bio">Expert in trendy styles including Korean and Wolf cuts. Known for his
+                            creative approach and attention to detail.</p>
+                        <div class="team-specialties">
+                            <span>Korean Cut</span>
+                            <span>Wolf Cut</span>
+                            <span>Modern Styles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p>Everything you need to know before your visit</p>
+            </div>
+
+            <div class="faq-container fade-in">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do I need to book an appointment?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>While walk-ins are welcome, we highly recommend booking an appointment to ensure you get your
+                            preferred time slot and barber. You can easily book online or call us at 0320-5719979.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What age groups do you serve?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We specialize in haircuts for boys and teens of all ages, from toddlers to young adults. Our
+                            barbers are experienced in handling clients of all ages with patience and skill.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does a typical haircut take?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A standard haircut takes about 25-35 minutes. More complex styles like Wolf Cut or Korean Cut
+                            may take 40-45 minutes. Premium services with add-ons can take up to 60 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What forms of payment do you accept?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept cash, JazzCash, Easypaisa, and bank transfers. Payment is made at the salon after
+                            your service is complete.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What should I bring for my first visit?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Just bring yourself! If you have inspiration photos of hairstyles you like, feel free to show
+                            our barbers. They'll help you choose a style that suits your face shape and hair type.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <circle cx="15" cy="15" r="2" fill="currentColor" />
+                            <circle cx="25" cy="15" r="2" fill="currentColor" />
+                            <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        Chohan's Saloon
+                    </a>
+                    <p>Premium boys' haircut and grooming salon. Where style meets precision for the modern young
+                        gentleman.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><span>📘</span></a>
+                        <a href="#" class="social-link"><span>📸</span></a>
+                        <a href="#" class="social-link"><span>🎵</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="index.html#reviews">Reviews</a>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="services.html">Wolf Cut</a>
+                        <a href="services.html">Korean Cut</a>
+                        <a href="services.html">Fade Cut</a>
+                        <a href="services.html">Beard Trim</a>
+                        <a href="services.html">Face Spa</a>
+                    </div>
+                </div>
+
+                <div class="footer-hours">
+                    <h4 class="footer-title">Business Hours</h4>
+                    <p><span class="highlight">Open Daily</span></p>
+                    <p>10:00 AM - 11:00 PM</p>
+                    <p style="margin-top: 1rem;"><span class="highlight">Phone:</span></p>
+                    <p>0320-5719979</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Chohan's Saloon. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/923205719979" class="social-link" style="background: #25D366;">
+                        <span>💬</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/923205719979" class="whatsapp-btn" target="_blank" rel="noopener"
+            aria-label="Chat on WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

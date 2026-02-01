@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Style Gallery - Chohan's Saloon. Browse our latest haircuts, transformations, and premium barbershop interior.">
+    <title>Gallery | Chohan's Saloon</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="15" cy="15" r="2" fill="currentColor" />
+                    <circle cx="25" cy="15" r="2" fill="currentColor" />
+                    <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Chohan's Saloon
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:03205719979" class="btn btn-secondary btn-sm">📞 Call Now</a>
+                <a href="booking.html" class="btn btn-primary btn-sm">Book Appointment</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Style Gallery</h1>
+            <p>Inspiration for your next look</p>
+        </div>
+    </div>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Latest <span class="text-gradient">Transformations</span></h2>
+                <p>Browse our work and get inspired</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in" data-index="0">
+                    <img src="images/barber_shop_interior_1769953251356.png" alt="Our Salon Interior">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Our Salon</h4>
+                        <p class="gallery-caption">Premium atmosphere</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=400&fit=crop"
+                        alt="Trendy wolf cut">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Wolf Cut</h4>
+                        <p class="gallery-caption">Trendy & textured</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=400&h=400&fit=crop"
+                        alt="Classic gentleman cut">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Classic Style</h4>
+                        <p class="gallery-caption">Timeless elegance</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&h=400&fit=crop"
+                        alt="Beard grooming">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Beard Styling</h4>
+                        <p class="gallery-caption">Precision grooming</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop"
+                        alt="Korean style haircut">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Korean Style</h4>
+                        <p class="gallery-caption">K-pop inspired</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in" data-index="5">
+                    <img src="images/gallery_fade_cut_1769953307468.png" alt="Perfect Fade Cut">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Perfect Fade</h4>
+                        <p class="gallery-caption">Clean & sharp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">❮</button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">❯</button>
+            <img src="" alt="Gallery image" id="lightboxImg">
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <circle cx="15" cy="15" r="2" fill="currentColor" />
+                            <circle cx="25" cy="15" r="2" fill="currentColor" />
+                            <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        Chohan's Saloon
+                    </a>
+                    <p>Premium boys' haircut and grooming salon. Where style meets precision for the modern young
+                        gentleman.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><span>📘</span></a>
+                        <a href="#" class="social-link"><span>📸</span></a>
+                        <a href="#" class="social-link"><span>🎵</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="index.html#reviews">Reviews</a>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4 class="footer-title">Services</h4>
+                    <div class="footer-links">
+                        <a href="services.html">Wolf Cut</a>
+                        <a href="services.html">Korean Cut</a>
+                        <a href="services.html">Fade Cut</a>
+                        <a href="services.html">Beard Trim</a>
+                        <a href="services.html">Face Spa</a>
+                    </div>
+                </div>
+
+                <div class="footer-hours">
+                    <h4 class="footer-title">Business Hours</h4>
+                    <p><span class="highlight">Open Daily</span></p>
+                    <p>10:00 AM - 11:00 PM</p>
+                    <p style="margin-top: 1rem;"><span class="highlight">Phone:</span></p>
+                    <p>0320-5719979</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Chohan's Saloon. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/923205719979" class="social-link" style="background: #25D366;">
+                        <span>💬</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/923205719979" class="whatsapp-btn" target="_blank" rel="noopener"
+            aria-label="Chat on WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

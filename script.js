@@ -8,13 +8,10 @@
 // ================================================
 const CONFIG = {
   businessHours: { open: 10, close: 23 }, // 10 AM - 11 PM
-  slotDuration: 30, // minutes
-  maxConcurrentBookings: 2,
-  adminEmail: 'amir03115794492@gmail.com',
   whatsappNumber: '923205719979',
   emailjs: {
     publicKey: 'YOUR_PUBLIC_KEY', // User needs to replace this
-    serviceId: 'YOUR_SERVICE_ID', // User needs to replace this
+    serviceId: 'service_mixheij',
     templateId: 'YOUR_TEMPLATE_ID' // User needs to replace this
   }
 };
@@ -88,10 +85,24 @@ function initNavbar() {
 
     navLinks.querySelectorAll('a').forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
+      const href = link.getAttribute('href');
+      // Check if current page matches href (for multi-page)
+      const path = window.location.pathname;
+      const pageName = path.split('/').pop() || 'index.html';
+
+      if (href === pageName || (href === 'index.html' && path.endsWith('/'))) {
         link.classList.add('active');
       }
     });
+  });
+
+  // Set active link on load
+  const path = window.location.pathname;
+  const pageName = path.split('/').pop() || 'index.html';
+  navLinks.querySelectorAll('a').forEach(link => {
+    if (link.getAttribute('href') === pageName) {
+      link.classList.add('active');
+    }
   });
 }
 

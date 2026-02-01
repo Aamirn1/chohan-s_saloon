@@ -25,12 +25,10 @@
 </head>
 
 <body>
-  <!-- ============================================
-       NAVIGATION
-       ============================================ -->
+  <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
           <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
@@ -43,21 +41,17 @@
       </a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#booking">Book Now</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <div class="nav-cta">
-        <a href="tel:03205719979" class="btn btn-secondary btn-sm">
-          📞 Call Now
-        </a>
-        <a href="#booking" class="btn btn-primary btn-sm">
-          Book Appointment
-        </a>
+        <a href="tel:03205719979" class="btn btn-secondary btn-sm">📞 Call Now</a>
+        <a href="booking.html" class="btn btn-primary btn-sm">Book Appointment</a>
       </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -68,9 +62,7 @@
     </div>
   </nav>
 
-  <!-- ============================================
-       HERO SECTION
-       ============================================ -->
+  <!-- HERO SECTION -->
   <section class="hero" id="home">
     <div class="hero-bg">
       <div class="hero-particles" id="particles"></div>
@@ -85,14 +77,14 @@
           Transforming <span class="text-gradient">Haircuts</span> for Boys & Teens
         </h1>
         <p class="hero-subtitle">
-          Where style meets precision. Experience the best haircuts, grooming, and styling services
-          tailored for the modern young gentleman.
+          Where style meets precision. Experience the best haircuts, grooming, and styling services tailored for the
+          modern young gentleman.
         </p>
         <div class="hero-cta">
-          <a href="#booking" class="btn btn-primary btn-lg">
+          <a href="booking.html" class="btn btn-primary btn-lg">
             Book Your Transformation
           </a>
-          <a href="#services" class="btn btn-secondary btn-lg">
+          <a href="services.html" class="btn btn-secondary btn-lg">
             View Services
           </a>
         </div>
@@ -126,24 +118,15 @@
     </div>
   </section>
 
-  <!-- ============================================
-       SERVICES SECTION
-       ============================================ -->
-  <section class="services section" id="services">
+  <!-- SERVICES PREVIEW -->
+  <section class="services section" id="services-preview">
     <div class="container">
       <div class="section-header fade-in">
         <h2>Our <span class="text-gradient">Services</span></h2>
-        <p>Choose from our range of premium haircut and grooming services</p>
+        <p>Expert haircuts and grooming for every style</p>
       </div>
 
-      <div class="services-categories fade-in">
-        <button class="category-btn active" data-category="all">All Services</button>
-        <button class="category-btn" data-category="haircuts">Haircuts</button>
-        <button class="category-btn" data-category="grooming">Grooming</button>
-        <button class="category-btn" data-category="facials">Facials</button>
-      </div>
-
-      <div class="services-grid" id="servicesGrid">
+      <div class="services-grid">
         <!-- Barber's Recommendation - Featured -->
         <div class="service-card featured fade-in" data-category="haircuts">
           <span class="featured-badge">⭐ Popular</span>
@@ -155,7 +138,7 @@
             <span class="service-price">Rs. 500</span>
             <span class="service-duration">⏱ 45 min</span>
           </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
 
         <!-- Wolf Cut -->
@@ -168,7 +151,7 @@
             <span class="service-price">Rs. 600</span>
             <span class="service-duration">⏱ 40 min</span>
           </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
 
         <!-- Korean Cut -->
@@ -181,177 +164,43 @@
             <span class="service-price">Rs. 650</span>
             <span class="service-duration">⏱ 45 min</span>
           </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
+      </div>
 
-        <!-- Crew Cut -->
-        <div class="service-card fade-in" data-category="haircuts">
-          <div class="service-icon">👦</div>
-          <h3 class="service-name">Crew Cut</h3>
-          <p class="service-description">Classic, clean, and low-maintenance. A timeless style that works for all ages
-            and occasions.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 350</span>
-            <span class="service-duration">⏱ 25 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Fade Cut -->
-        <div class="service-card fade-in" data-category="haircuts">
-          <div class="service-icon">📐</div>
-          <h3 class="service-name">Fade Cut</h3>
-          <p class="service-description">Precision fade from skin to full length. Choose from low, mid, or high fade
-            styles.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 450</span>
-            <span class="service-duration">⏱ 35 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Classic Cut -->
-        <div class="service-card fade-in" data-category="haircuts">
-          <div class="service-icon">🎩</div>
-          <h3 class="service-name">Classic Cut</h3>
-          <p class="service-description">Traditional gentleman's haircut with scissor work, styled to perfection for a
-            polished look.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 400</span>
-            <span class="service-duration">⏱ 30 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Beard Trim -->
-        <div class="service-card fade-in" data-category="grooming">
-          <div class="service-icon">🧔</div>
-          <h3 class="service-name">Beard Trim & Shape</h3>
-          <p class="service-description">Professional beard trimming and shaping to complement your face structure and
-            style.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 250</span>
-            <span class="service-duration">⏱ 20 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Hot Towel Shave -->
-        <div class="service-card fade-in" data-category="grooming">
-          <div class="service-icon">🪒</div>
-          <h3 class="service-name">Hot Towel Shave</h3>
-          <p class="service-description">Luxurious traditional shave with hot towel treatment, premium oils, and a
-            smooth finish.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 350</span>
-            <span class="service-duration">⏱ 30 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Face Spa -->
-        <div class="service-card fade-in" data-category="facials">
-          <div class="service-icon">💆</div>
-          <h3 class="service-name">Face Spa</h3>
-          <p class="service-description">Relaxing facial treatment with cleansing, exfoliation, and moisturizing for
-            refreshed skin.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 500</span>
-            <span class="service-duration">⏱ 40 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
-
-        <!-- Facial Treatment -->
-        <div class="service-card fade-in" data-category="facials">
-          <div class="service-icon">✨</div>
-          <h3 class="service-name">Premium Facial</h3>
-          <p class="service-description">Deep cleansing facial with anti-aging treatment, masks, and massage for glowing
-            skin.</p>
-          <div class="service-meta">
-            <span class="service-price">Rs. 800</span>
-            <span class="service-duration">⏱ 60 min</span>
-          </div>
-          <a href="#booking" class="btn btn-primary">Book Now</a>
-        </div>
+      <div class="text-center" style="margin-top: var(--space-8);">
+        <a href="services.html" class="btn btn-secondary">View All Services</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       GALLERY SECTION
-       ============================================ -->
-  <section class="gallery section" id="gallery">
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery section" id="gallery-preview">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Style <span class="text-gradient">Gallery</span></h2>
-        <p>Browse our latest work and get inspired for your next transformation</p>
+        <h2>Recent <span class="text-gradient">Work</span></h2>
+        <p>See our latest transformations</p>
       </div>
 
-      <div class="gallery-grid">
-        <div class="gallery-item fade-in" data-index="0">
+      <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="gallery-item fade-in">
           <img src="images/barber_shop_interior_1769953251356.png" alt="Our Salon Interior">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Our Salon</h4>
-            <p class="gallery-caption">Premium atmosphere</p>
-          </div>
         </div>
-        <div class="gallery-item fade-in" data-index="1">
-          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=400&fit=crop"
-            alt="Trendy wolf cut">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Wolf Cut</h4>
-            <p class="gallery-caption">Trendy & textured</p>
-          </div>
+        <div class="gallery-item fade-in">
+          <img src="images/gallery_fade_cut_1769953307468.png" alt="Fade Cut">
         </div>
-        <div class="gallery-item fade-in" data-index="2">
-          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=400&h=400&fit=crop"
-            alt="Classic gentleman cut">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Classic Style</h4>
-            <p class="gallery-caption">Timeless elegance</p>
-          </div>
+        <div class="gallery-item fade-in">
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=400&fit=crop" alt="Wolf cut">
         </div>
-        <div class="gallery-item fade-in" data-index="3">
-          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&h=400&fit=crop"
-            alt="Beard grooming">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Beard Styling</h4>
-            <p class="gallery-caption">Precision grooming</p>
-          </div>
-        </div>
-        <div class="gallery-item fade-in" data-index="4">
-          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop"
-            alt="Korean style haircut">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Korean Style</h4>
-            <p class="gallery-caption">K-pop inspired</p>
-          </div>
-        </div>
-        <div class="gallery-item fade-in" data-index="5">
-          <img src="images/gallery_fade_cut_1769953307468.png" alt="Perfect Fade Cut">
-          <div class="gallery-overlay">
-            <h4 class="gallery-title">Perfect Fade</h4>
-            <p class="gallery-caption">Clean & sharp</p>
-          </div>
-        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--space-8);">
+        <a href="gallery.html" class="btn btn-secondary">View Full Gallery</a>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose">✕</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">❮</button>
-      <button class="lightbox-nav lightbox-next" id="lightboxNext">❯</button>
-      <img src="" alt="Gallery image" id="lightboxImg">
-    </div>
-  </div>
-
-  <!-- ============================================
-       TESTIMONIALS SECTION
-       ============================================ -->
+  <!-- TESTIMONIALS SECTION -->
   <section class="testimonials section" id="reviews">
     <div class="container">
       <div class="section-header fade-in">
@@ -364,17 +213,11 @@
           <!-- Testimonial 1 -->
           <div class="testimonial-card">
             <div class="testimonial-rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
             </div>
-            <p class="testimonial-content">
-              "Best barbershop in town! My son absolutely loves coming here. The barbers are
-              skilled, patient with kids, and always deliver amazing results. The Wolf Cut
-              they did was exactly what we wanted!"
-            </p>
+            <p class="testimonial-content">"Best barbershop in town! My son absolutely loves coming here. The barbers
+              are skilled and patient."</p>
             <div class="testimonial-author">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
                 alt="Ahmed Khan" class="testimonial-avatar">
@@ -384,21 +227,14 @@
               </div>
             </div>
           </div>
-
           <!-- Testimonial 2 -->
           <div class="testimonial-card">
             <div class="testimonial-rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
             </div>
-            <p class="testimonial-content">
-              "Professional service, great atmosphere, and the best Korean-style cuts in the city!
-              The online booking makes it so convenient. Highly recommend to all parents looking
-              for quality haircuts for their boys."
-            </p>
+            <p class="testimonial-content">"Professional service and great atmosphere. The online booking makes it so
+              convenient."</p>
             <div class="testimonial-author">
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
                 alt="Bilal Ahmed" class="testimonial-avatar">
@@ -408,21 +244,14 @@
               </div>
             </div>
           </div>
-
           <!-- Testimonial 3 -->
           <div class="testimonial-card">
             <div class="testimonial-rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                class="star">★</span><span class="star">★</span>
             </div>
-            <p class="testimonial-content">
-              "I've been to many barbershops but Chohan's Saloon is on another level.
-              The attention to detail, the ambiance, and the expertise of the barbers
-              is unmatched. My teen now actually looks forward to haircuts!"
-            </p>
+            <p class="testimonial-content">"The attention to detail is unmatched. My teen now actually looks forward to
+              haircuts!"</p>
             <div class="testimonial-author">
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
                 alt="Usman Ali" class="testimonial-avatar">
@@ -441,515 +270,99 @@
         </div>
       </div>
     </div>
-    <!-- ============================================
-       TEAM SECTION
-       ============================================ -->
-    <section class="team section" id="team">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Meet Our <span class="text-gradient">Expert Barbers</span></h2>
-          <p>Skilled professionals dedicated to making you look your best</p>
+  </section>
+
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter-card fade-in">
+        <div class="newsletter-content">
+          <h3>Stay <span class="text-gradient">Updated</span></h3>
+          <p>Subscribe to get exclusive offers, style tips, and updates about new services!</p>
         </div>
-
-        <div class="team-grid fade-in">
-          <div class="team-card">
-            <div class="team-image">
-              <img src="images/barber_portrait_1_1769953277022.png" alt="Amir Chohan">
-            </div>
-            <div class="team-info">
-              <h3>Amir Chohan</h3>
-              <p class="team-role">Master Barber & Owner</p>
-              <p class="team-bio">10+ years of experience in precision cuts and styling. Specializes in fades and
-                classic gentleman cuts.</p>
-              <div class="team-specialties">
-                <span>Fades</span>
-                <span>Classic Cuts</span>
-                <span>Beard Styling</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="team-card">
-            <div class="team-image">
-              <img src="images/barber_portrait_2_1769953291764.png" alt="Hassan Ali">
-            </div>
-            <div class="team-info">
-              <h3>Hassan Ali</h3>
-              <p class="team-role">Senior Stylist</p>
-              <p class="team-bio">Expert in trendy styles including Korean and Wolf cuts. Known for his creative
-                approach and attention to detail.</p>
-              <div class="team-specialties">
-                <span>Korean Cut</span>
-                <span>Wolf Cut</span>
-                <span>Modern Styles</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-       FAQ SECTION
-       ============================================ -->
-    <section class="faq section" id="faq">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
-          <p>Everything you need to know before your visit</p>
-        </div>
-
-        <div class="faq-container fade-in">
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Do I need to book an appointment?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>While walk-ins are welcome, we highly recommend booking an appointment to ensure you get your preferred
-                time slot and barber. You can easily book online or call us at 0320-5719979.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>What age groups do you serve?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>We specialize in haircuts for boys and teens of all ages, from toddlers to young adults. Our barbers
-                are experienced in handling clients of all ages with patience and skill.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>How long does a typical haircut take?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>A standard haircut takes about 25-35 minutes. More complex styles like Wolf Cut or Korean Cut may take
-                40-45 minutes. Premium services with add-ons can take up to 60 minutes.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>What forms of payment do you accept?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>We accept cash, JazzCash, Easypaisa, and bank transfers. Payment is made at the salon after your
-                service is complete.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>What should I bring for my first visit?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Just bring yourself! If you have inspiration photos of hairstyles you like, feel free to show our
-                barbers. They'll help you choose a style that suits your face shape and hair type.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-       NEWSLETTER SECTION
-       ============================================ -->
-    <section class="newsletter section">
-      <div class="container">
-        <div class="newsletter-card fade-in">
-          <div class="newsletter-content">
-            <h3>Stay <span class="text-gradient">Updated</span></h3>
-            <p>Subscribe to get exclusive offers, style tips, and updates about new services!</p>
-          </div>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-       BOOKING SECTION
-       ============================================ -->
-    <section class="booking section" id="booking">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Book Your <span class="text-gradient">Appointment</span></h2>
-          <p>Schedule your visit in just a few clicks</p>
-        </div>
-
-        <div class="booking-container">
-          <div class="booking-info slide-in-left">
-            <h3>Why Book With Us?</h3>
-            <p>Experience hassle-free appointments with our easy online booking system.</p>
-
-            <div class="booking-features">
-              <div class="booking-feature">
-                <div class="booking-feature-icon">🕐</div>
-                <div class="booking-feature-text">
-                  <h4>Open Daily</h4>
-                  <p>10:00 AM - 11:00 PM, 7 days a week</p>
-                </div>
-              </div>
-              <div class="booking-feature">
-                <div class="booking-feature-icon">⚡</div>
-                <div class="booking-feature-text">
-                  <h4>Instant Confirmation</h4>
-                  <p>Get immediate booking confirmation</p>
-                </div>
-              </div>
-              <div class="booking-feature">
-                <div class="booking-feature-icon">💳</div>
-                <div class="booking-feature-text">
-                  <h4>Pay at Salon</h4>
-                  <p>No advance payment required</p>
-                </div>
-              </div>
-              <div class="booking-feature">
-                <div class="booking-feature-icon">📱</div>
-                <div class="booking-feature-text">
-                  <h4>WhatsApp Support</h4>
-                  <p>Quick assistance anytime</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="booking-form slide-in-right" id="bookingForm">
-            <div class="form-header">
-              <h3>Schedule Your Visit</h3>
-              <p>Fill in the details below to book your appointment</p>
-            </div>
-
-            <form id="appointmentForm">
-              <!-- Customer Details -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Your Name <span>*</span></label>
-                  <input type="text" class="form-input" id="customerName" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Phone Number <span>*</span></label>
-                  <input type="tel" class="form-input" id="customerPhone" placeholder="03XX-XXXXXXX" required>
-                </div>
-              </div>
-
-              <!-- Date & Time -->
-              <div class="form-group">
-                <label class="form-label">Select Date <span>*</span></label>
-                <input type="date" class="form-input" id="appointmentDate" required>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Select Time <span>*</span></label>
-                <div class="time-slots" id="timeSlots">
-                  <!-- Time slots will be generated by JavaScript -->
-                </div>
-              </div>
-
-              <!-- Service Selection -->
-              <div class="form-group">
-                <label class="form-label">Select Service <span>*</span></label>
-                <div class="services-select" id="serviceSelect">
-                  <label class="service-option" data-price="500" data-duration="45">
-                    <input type="radio" name="service" value="Barber's Recommendation" required>
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Barber's Recommendation ⭐</div>
-                      <div class="service-option-details">45 min • Expert's choice</div>
-                    </div>
-                    <span class="service-option-price">Rs. 500</span>
-                  </label>
-                  <label class="service-option" data-price="600" data-duration="40">
-                    <input type="radio" name="service" value="Wolf Cut">
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Wolf Cut</div>
-                      <div class="service-option-details">40 min • Trendy & textured</div>
-                    </div>
-                    <span class="service-option-price">Rs. 600</span>
-                  </label>
-                  <label class="service-option" data-price="650" data-duration="45">
-                    <input type="radio" name="service" value="Korean Cut">
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Korean Cut</div>
-                      <div class="service-option-details">45 min • K-pop inspired</div>
-                    </div>
-                    <span class="service-option-price">Rs. 650</span>
-                  </label>
-                  <label class="service-option" data-price="450" data-duration="35">
-                    <input type="radio" name="service" value="Fade Cut">
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Fade Cut</div>
-                      <div class="service-option-details">35 min • Low/Mid/High fade</div>
-                    </div>
-                    <span class="service-option-price">Rs. 450</span>
-                  </label>
-                  <label class="service-option" data-price="350" data-duration="25">
-                    <input type="radio" name="service" value="Crew Cut">
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Crew Cut</div>
-                      <div class="service-option-details">25 min • Classic & clean</div>
-                    </div>
-                    <span class="service-option-price">Rs. 350</span>
-                  </label>
-                  <label class="service-option" data-price="250" data-duration="20">
-                    <input type="radio" name="service" value="Beard Trim">
-                    <span class="service-option-check"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Beard Trim</div>
-                      <div class="service-option-details">20 min • Shape & style</div>
-                    </div>
-                    <span class="service-option-price">Rs. 250</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Add-ons -->
-              <div class="form-group">
-                <label class="form-label">Add-ons (Optional)</label>
-                <div class="addons-grid" id="addonsGrid">
-                  <label class="addon-option" data-price="200">
-                    <input type="checkbox" name="addon" value="Hot Towel Treatment">
-                    <span class="addon-checkbox"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Hot Towel</div>
-                    </div>
-                    <span class="service-option-price">+Rs. 200</span>
-                  </label>
-                  <label class="addon-option" data-price="300">
-                    <input type="checkbox" name="addon" value="Hair Styling">
-                    <span class="addon-checkbox"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Hair Styling</div>
-                    </div>
-                    <span class="service-option-price">+Rs. 300</span>
-                  </label>
-                  <label class="addon-option" data-price="150">
-                    <input type="checkbox" name="addon" value="Scalp Massage">
-                    <span class="addon-checkbox"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Scalp Massage</div>
-                    </div>
-                    <span class="service-option-price">+Rs. 150</span>
-                  </label>
-                  <label class="addon-option" data-price="500">
-                    <input type="checkbox" name="addon" value="Face Spa">
-                    <span class="addon-checkbox"></span>
-                    <div class="service-option-info">
-                      <div class="service-option-name">Face Spa</div>
-                    </div>
-                    <span class="service-option-price">+Rs. 500</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Price Summary -->
-              <div class="price-summary" id="priceSummary">
-                <h4>Booking Summary</h4>
-                <div id="priceItems">
-                  <div class="price-item">
-                    <span>Select a service to see pricing</span>
-                    <span>-</span>
-                  </div>
-                </div>
-                <div class="price-total">
-                  <span>Total</span>
-                  <span class="amount" id="totalPrice">Rs. 0</span>
-                </div>
-              </div>
-
-              <!-- Confirmation -->
-              <label class="confirm-checkbox">
-                <input type="checkbox" id="confirmBooking" required>
-                <span>I confirm this appointment and agree to arrive on time. I understand that
-                  repeated no-shows may affect future bookings.</span>
-              </label>
-
-              <button type="submit" class="btn btn-primary btn-lg">
-                ✨ Confirm Appointment
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Booking Confirmation Modal -->
-    <div class="booking-confirmation" id="bookingConfirmation">
-      <div class="confirmation-content">
-        <div class="confirmation-icon">✓</div>
-        <h3>Booking Confirmed!</h3>
-        <p>Your appointment has been scheduled successfully.</p>
-
-        <div class="confirmation-details" id="confirmationDetails">
-          <!-- Filled by JavaScript -->
-        </div>
-
-        <a href="#home" class="btn btn-primary" onclick="closeConfirmation()">Back to Home</a>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
     </div>
+  </section>
 
-    <!-- ============================================
-       CONTACT SECTION
-       ============================================ -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Get In <span class="text-gradient">Touch</span></h2>
-          <p>Visit us or reach out for any inquiries</p>
-        </div>
-
-        <div class="contact-container">
-          <div class="contact-info slide-in-left">
-            <h3>Contact Information</h3>
-
-            <div class="contact-list">
-              <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-text">
-                  <h4>Location</h4>
-                  <p>Chohan's Saloon, Main Boulevard<br>Your City, Pakistan</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div class="contact-text">
-                  <h4>Phone</h4>
-                  <p><a href="tel:03205719979">0320-5719979</a></p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">💬</div>
-                <div class="contact-text">
-                  <h4>WhatsApp</h4>
-                  <p><a href="https://wa.me/923205719979">Chat with us</a></p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">🕐</div>
-                <div class="contact-text">
-                  <h4>Business Hours</h4>
-                  <p>Open Daily: 10:00 AM - 11:00 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <h4 style="margin-bottom: 1rem;">Follow Us</h4>
-            <div class="social-links">
-              <a href="#" class="social-link" data-tooltip="Coming Soon">
-                <span>📘</span>
-              </a>
-              <a href="#" class="social-link" data-tooltip="Coming Soon">
-                <span>📸</span>
-              </a>
-              <a href="#" class="social-link" data-tooltip="Coming Soon">
-                <span>🎵</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-map slide-in-right">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.5!2d74.3!3d31.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDMwJzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2s!4v1600000000000!5m2!1sen!2s"
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-       FOOTER
-       ============================================ -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <a href="#" class="logo">
-              <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
-                <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" />
-                <circle cx="15" cy="15" r="2" fill="currentColor" />
-                <circle cx="25" cy="15" r="2" fill="currentColor" />
-                <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              Chohan's Saloon
-            </a>
-            <p>Premium boys' haircut and grooming salon. Where style meets precision for the modern young gentleman.</p>
-            <div class="social-links">
-              <a href="#" class="social-link"><span>📘</span></a>
-              <a href="#" class="social-link"><span>📸</span></a>
-              <a href="#" class="social-link"><span>🎵</span></a>
-            </div>
-          </div>
-
-          <div class="footer-nav">
-            <h4 class="footer-title">Quick Links</h4>
-            <div class="footer-links">
-              <a href="#home">Home</a>
-              <a href="#services">Services</a>
-              <a href="#gallery">Gallery</a>
-              <a href="#reviews">Reviews</a>
-              <a href="#booking">Book Now</a>
-            </div>
-          </div>
-
-          <div class="footer-nav">
-            <h4 class="footer-title">Services</h4>
-            <div class="footer-links">
-              <a href="#services">Wolf Cut</a>
-              <a href="#services">Korean Cut</a>
-              <a href="#services">Fade Cut</a>
-              <a href="#services">Beard Trim</a>
-              <a href="#services">Face Spa</a>
-            </div>
-          </div>
-
-          <div class="footer-hours">
-            <h4 class="footer-title">Business Hours</h4>
-            <p><span class="highlight">Open Daily</span></p>
-            <p>10:00 AM - 11:00 PM</p>
-            <p style="margin-top: 1rem;"><span class="highlight">Phone:</span></p>
-            <p>0320-5719979</p>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© 2026 Chohan's Saloon. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+              <path d="M12 28C12 28 14 20 20 20C26 20 28 28 28 28" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+              <circle cx="15" cy="15" r="2" fill="currentColor" />
+              <circle cx="25" cy="15" r="2" fill="currentColor" />
+              <path d="M10 12L14 8M30 12L26 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Chohan's Saloon
+          </a>
+          <p>Premium boys' haircut and grooming salon. Where style meets precision for the modern young gentleman.</p>
           <div class="social-links">
-            <a href="https://wa.me/923205719979" class="social-link" style="background: #25D366;">
-              <span>💬</span>
-            </a>
+            <a href="#" class="social-link"><span>📘</span></a>
+            <a href="#" class="social-link"><span>📸</span></a>
+            <a href="#" class="social-link"><span>🎵</span></a>
           </div>
         </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#reviews">Reviews</a>
+            <a href="booking.html">Book Now</a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-title">Services</h4>
+          <div class="footer-links">
+            <a href="services.html">Wolf Cut</a>
+            <a href="services.html">Korean Cut</a>
+            <a href="services.html">Fade Cut</a>
+            <a href="services.html">Beard Trim</a>
+            <a href="services.html">Face Spa</a>
+          </div>
+        </div>
+
+        <div class="footer-hours">
+          <h4 class="footer-title">Business Hours</h4>
+          <p><span class="highlight">Open Daily</span></p>
+          <p>10:00 AM - 11:00 PM</p>
+          <p style="margin-top: 1rem;"><span class="highlight">Phone:</span></p>
+          <p>0320-5719979</p>
+        </div>
       </div>
-    </footer>
 
-    <!-- ============================================
-       WHATSAPP FLOATING BUTTON
-       ============================================ -->
-    <div class="whatsapp-float">
-      <a href="https://wa.me/923205719979" class="whatsapp-btn" target="_blank" rel="noopener"
-        aria-label="Chat on WhatsApp">
-        💬
-      </a>
+      <div class="footer-bottom">
+        <p>© 2026 Chohan's Saloon. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://wa.me/923205719979" class="social-link" style="background: #25D366;">
+            <span>💬</span>
+          </a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+  <!-- WhatsApp Button -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/923205719979" class="whatsapp-btn" target="_blank" rel="noopener"
+      aria-label="Chat on WhatsApp">
+      💬
+    </a>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
