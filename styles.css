@@ -348,6 +348,106 @@ h6 {
 }
 
 /* ------------------------------------------------
+   REVIEWS PAGE & MOBILE FIXES
+   ------------------------------------------------ */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+/* Time Slots - Mobile Fix */
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Desktop */
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.time-slot {
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--text-sm);
+}
+
+.time-slot:hover:not(.disabled) {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+}
+
+.time-slot.selected {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+  border-color: var(--color-accent-gold);
+  font-weight: 600;
+}
+
+.time-slot.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .booking-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .booking-info {
+    position: static;
+  }
+
+  .time-slots {
+    grid-template-columns: repeat(3, 1fr);
+    /* Tablet */
+  }
+
+  /* Font Sizing Fixes */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+    /* Mobile - 2 columns for better visibility */
+  }
+
+  .booking-form {
+    padding: var(--space-6);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+
+/* ------------------------------------------------
    NAVIGATION
    ------------------------------------------------ */
 .navbar {

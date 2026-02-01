@@ -463,57 +463,88 @@ function selectTimeSlot(slot) {
   slot.classList.add('selected');
 }
 
+// ================================================
+// BOOKING FORM LOGIC
+// ================================================
+
 function initFormInteractions() {
-  // Service selection
+  // Service Options Selection
+  const serviceInputs = document.querySelectorAll('input[name="service"]');
   const serviceOptions = document.querySelectorAll('.service-option');
-  serviceOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      serviceOptions.forEach(o => o.classList.remove('selected'));
-      option.classList.add('selected');
+
+  serviceInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      // Visually update
+      serviceOptions.forEach(opt => opt.classList.remove('selected'));
+      const parentLabel = input.closest('.service-option');
+      if (parentLabel) parentLabel.classList.add('selected');
+
       updatePriceSummary();
     });
   });
 
-  // Add-on selection
-  const addonOptions = document.querySelectorAll('.addon-option');
-  addonOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      option.classList.toggle('selected');
-      const checkbox = option.querySelector('input[type="checkbox"]');
-      checkbox.checked = option.classList.contains('selected');
+  // Handle label clicks specifically if needed (though label wrapping input usually handles this)
+  // We'll rely on the change event which is safer.
+
+  // Add-ons Selection
+  const addonInputs = document.querySelectorAll('input[name="addon"]');
+  addonInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      const parentLabel = input.closest('.addon-option');
+      if (parentLabel) parentLabel.classList.toggle('selected', input.checked);
       updatePriceSummary();
     });
   });
 }
 
 function updatePriceSummary() {
+  const selectedServiceInput = document.querySelector('input[name="service"]:checked');
+  const selectedAddonsInputs = document.querySelectorAll('input[name="addon"]:checked');
+
   const priceItemsContainer = document.getElementById('priceItems');
   const totalPriceElement = document.getElementById('totalPrice');
+
+  if (!priceItemsContainer || !totalPriceElement) return;
 
   let total = 0;
   let html = '';
 
-  // Selected service
-  const selectedService = document.querySelector('.service-option.selected');
-  if (selectedService) {
-    const serviceName = selectedService.querySelector('.service-option-name').textContent;
-    const servicePrice = parseInt(selectedService.dataset.price);
-    total += servicePrice;
-    html += `<div class="price-item"><span>${serviceName}</span><span>Rs. ${servicePrice}</span></div>`;
+  // Add Service
+  if (selectedServiceInput) {
+    const parentLabel = selectedServiceInput.closest('.service-option');
+    const price = parseInt(parentLabel.dataset.price);
+    const name = parentLabel.querySelector('.service-option-name').textContent;
+
+    total += price;
+    html += `
+      <div class="price-item">
+        <span>${name}</span>
+        <span>Rs. ${price}</span>
+      </div>
+    `;
+  } else {
+    html += `
+      <div class="price-item text-muted">
+        <span>Select a service</span>
+        <span>-</span>
+      </div>
+    `;
   }
 
-  // Selected add-ons
-  const selectedAddons = document.querySelectorAll('.addon-option.selected');
-  selectedAddons.forEach(addon => {
-    const addonName = addon.querySelector('.service-option-name').textContent;
-    const addonPrice = parseInt(addon.dataset.price);
-    total += addonPrice;
-    html += `<div class="price-item"><span>${addonName}</span><span>Rs. ${addonPrice}</span></div>`;
+  // Add Add-ons
+  selectedAddonsInputs.forEach(input => {
+    const parentLabel = input.closest('.addon-option');
+    const price = parseInt(parentLabel.dataset.price);
+    const name = parentLabel.querySelector('.service-option-name').textContent; // Note: Ensure HTML structure matches this selector or use simpler parsing
+
+    total += price;
+    html += `
+      <div class="price-item">
+        <span>+ ${name}</span>
+        <span>Rs. ${price}</span>
+      </div>
+    `;
   });
-
-  if (html === '') {
-    html = '<div class="price-item"><span>Select a service to see pricing</span><span>-</span></div>';
-  }
 
   priceItemsContainer.innerHTML = html;
   totalPriceElement.textContent = `Rs. ${total}`;
@@ -522,28 +553,17 @@ function updatePriceSummary() {
 async function handleFormSubmit(e) {
   e.preventDefault();
 
-  // Gather form data
-  const name = document.getElementById('customerName').value;
-  const phone = document.getElementById('customerPhone').value;
-  const date = document.getElementById('appointmentDate').value;
-  const selectedTimeSlot = document.querySelector('.time-slot.selected');
-  const selectedService = document.querySelector('.service-option.selected');
-  const selectedAddons = document.querySelectorAll('.addon-option.selected');
-  const confirmCheckbox = document.getElementById('confirmBooking');
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
 
   // Validation
-  if (!name || !phone || !date) {
-    alert('Please fill in all required fields.');
-    return;
-  }
+  const selectedService = document.querySelector('input[name="service"]:checked');
+  const selectedTime = document.querySelector('.time-slot.selected');
+  const confirmCheckbox = document.getElementById('confirmBooking');
 
-  if (!selectedTimeSlot) {
-    alert('Please select a time slot.');
-    return;
-  }
-
-  if (!selectedService) {
-    alert('Please select a service.');
+  if (!selectedService || !selectedTime) {
+    alert('Please select a service and time slot.');
     return;
   }
 
@@ -551,23 +571,6 @@ async function handleFormSubmit(e) {
     alert('Please confirm your appointment.');
     return;
   }
-
-  // Build booking details
-  const time = selectedTimeSlot.dataset.time;
-  const serviceName = selectedService.querySelector('.service-option-name').textContent;
-  const servicePrice = parseInt(selectedService.dataset.price);
-
-  let addons = [];
-  let addonsTotal = 0;
-  selectedAddons.forEach(addon => {
-    const name = addon.querySelector('.service-option-name').textContent;
-    const price = parseInt(addon.dataset.price);
-    addons.push({ name, price });
-    addonsTotal += price;
-  });
-
-  const totalPrice = servicePrice + addonsTotal;
-
   // Format date for display
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     weekday: 'long',
